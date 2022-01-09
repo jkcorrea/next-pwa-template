@@ -1,37 +1,51 @@
 {
-	"name": "next-pwa-template",
-	"version": "0.0.0",
-	"license": "MIT",
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"next": "12.0.7",
-		"next-pwa": "^5.4.4",
-		"next-themes": "^0.0.15",
-		"react": "17.0.2",
-		"react-dom": "17.0.2"
-	},
-	"devDependencies": {
-		"@types/node": "^16.11.12",
-		"@types/react": "^17.0.37",
-		"autoprefixer": "^10.4.0",
-		"eslint": "^8.4.1",
-		"eslint-config-next": "^12.0.7",
-		"eslint-config-prettier": "^8.3.0",
-		"postcss": "^8.4.4",
-		"prettier": "^2.5.1",
-		"tailwindcss": "^3.0.0",
-		"tailwindcss-safe-area": "^0.2.2",
-		"typescript": "^4.5.3"
-	},
-	"prettier": {
-		"semi": false,
-		"singleQuote": true,
-		"jsxSingleQuote": true,
-		"useTabs": true
-	}
+  "name": "next-pwa-template",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently -c \"#E10098\",cyan -n gql,dev \"pnpm generate --watch\" \"next dev\"",
+    "build": "next build && pnpm generate",
+    "start": "next start",
+    "lint": "next lint",
+    "preinstall": "npx only-allow pnpm",
+    "generate": "graphql-codegen -r dotenv/config --config .graphqlrc.js"
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "dotenv": "^10.0.0",
+    "graphql": "^16.2.0",
+    "graphql-config": "^4.1.0",
+    "graphql-tag": "^2.12.6",
+    "next": "12.0.7",
+    "next-pwa": "^5.4.4",
+    "next-themes": "^0.0.15",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@graphql-codegen/cli": "2.3.1",
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.4.2",
+    "@graphql-codegen/typescript-operations": "2.2.2",
+    "@graphql-codegen/typescript-react-query": "^3.3.0",
+    "@types/node": "^16.11.12",
+    "@types/react": "^17.0.37",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.4.1",
+    "eslint-config-next": "^12.0.7",
+    "eslint-config-prettier": "^8.3.0",
+    "postcss": "^8.4.4",
+    "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.0",
+    "tailwindcss-safe-area": "^0.2.2",
+    "typescript": "^4.5.3",
+    "webpack": "^5.65.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "useTabs": false
+  }
 }
